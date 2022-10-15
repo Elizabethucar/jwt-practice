@@ -5,6 +5,9 @@ const mongoose = require('mongoose')
 
 const PORT = process.env.PORT || 3000;
 
+//import routes
+const authRoute = require('./routes/auth')
+
 dotenv.config();
 
 //connect to db
@@ -13,8 +16,8 @@ mongoose.connect(process.env.DB_CONNECT,
 ()=>console.log('Connected to db')
 )
 
-//import routes
-const authRoute = require('./routes/auth')
+//middleware
+app.use(express.json())
 
 //routes middlewares
 app.use('/api/user', authRoute)
