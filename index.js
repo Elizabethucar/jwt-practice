@@ -1,6 +1,11 @@
 const express = require('express')
 const app = express()
+const mongoose = require('mongoose')
 const PORT = process.env.PORT || 3000
+
+//connect to db
+mongoose.connect('mongodb+srv://Liz:Edessa07@jwt-practice.w2ttirl.mongodb.net/?retryWrites=true&w=majority')
+
 //import routes
 const authRoute = require('./routes/auth')
 
